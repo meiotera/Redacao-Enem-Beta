@@ -1,7 +1,6 @@
 let questionInitial = 0;
 let opt = [];
 let btn_start = document.getElementById('btn-start');
-
 let theme = null;
 
 btn_start.addEventListener('click', ()=>{
@@ -51,17 +50,17 @@ btNext.addEventListener('click', ()=>{
 
     let op = null;
     
+    if(questionInitial === 5) {
+        checkbox();
+        return
+    }
+
     for(sel of checked){        
         if(sel.checked){
             op = sel.value;
             
             opt.push(`${tituloQuestao.innerText.bold()} = ${sel.value}`);
         }
-    }
-
-    if(questionInitial === 5) {
-        checkbox();
-        return
     }
 
     if(op === null){
@@ -72,8 +71,7 @@ btNext.addEventListener('click', ()=>{
         alert.className = ''
         alert.innerHTML = ''
     }
-
-    console.log(opt);    
+    
     questionInitial++;
     show_questions();
 });
@@ -138,6 +136,11 @@ function checkbox() {
     let array_ckecked = document.querySelectorAll('input[type="checkbox"]:checked').length
     let number_of_checked = array_ckecked;
     let alert = document.getElementById('liveAlertPlaceholder');
+
+    let checked = document.querySelectorAll('.options input');    
+    let tituloQuestao = document.querySelector('.question span');  
+
+
   
     if(number_of_checked !== 2) {
         alert.className = 'alert alert-danger'
@@ -145,8 +148,17 @@ function checkbox() {
         
         return;
     } else {
+        
         alert.className = ''
         alert.innerHTML = '';
+    }
+    
+    for(sel of checked){        
+        if(sel.checked){
+            op = sel.value;
+            
+            opt.push(`${tituloQuestao.innerText.bold()} = ${sel.value}`);
+        }
     }
     questionInitial++
     show_questions();    
