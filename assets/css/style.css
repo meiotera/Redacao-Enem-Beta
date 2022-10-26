@@ -26,7 +26,7 @@ body {
 #btnResumo {
     right: 0;
     position: absolute;
-    top: 8rem;    
+    top: 0rem;    
     transform: initial;
     font-size: 1rem;
     padding: .5rem;  
@@ -97,15 +97,16 @@ body {
     position: relative;
     overflow: hidden;    
 } */
-
+.text-center {
+    position: relative;
+}
 .success_info {    
-    position: absolute; 
-    
+    position: absolute;     
     height: 100vh;
     right: 0;
-    top: 7.5rem;     
+    top: 0;     
     transition: ease-in .5s;
-    overflow: auto;
+    overflow: scroll;
     text-align: left;
 }
 
@@ -118,5 +119,3 @@ body {
 .help .offcanvas-body{
     overflow: auto;
 }
-
-/*Alert*/
